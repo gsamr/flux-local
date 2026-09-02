@@ -64,6 +64,7 @@ global:
 ## String to fully override artifactory.fullname template
 # fullnameOverride:
 
+databaseUpgradeReady: true
 ## Set to true when cluster keys (masterKey, joinKey) are passed via artifactory.extraSystemYaml, artifactory.systemYaml, or artifactory.systemYamlOverride.
 keysPassedViaSystemyaml: false
 ## Send all services logs to container STDOUT in JSON format
