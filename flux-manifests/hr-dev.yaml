@@ -5,7 +5,7 @@ metadata:
   namespace: artifactory-dev
 spec:
   interval: 15m
-  timeout: 5m
+  timeout: 20m
   chart:
     spec:
       chart: "./charts/dev/artifactory"
@@ -18,6 +18,16 @@ spec:
         - "./charts/dev/artifactory/values.yaml"
         - "./values.dev.yaml"
       interval: 5m
+  postRenderers:
+    - kustomize:
+        patches:
+          - target:
+              kind: ConfigMap
+              name: artifactory-dev-configmaps
+            patch: |
+              - op: replace
+                path: /metadata/labels/chart
+                value: artifactory-latest
   releaseName: artifactory-dev
   install:
     remediation:
