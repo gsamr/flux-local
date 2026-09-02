@@ -16,7 +16,7 @@ spec:
         namespace: flux-system
       valuesFiles:
         - "./charts/acc/artifactory/values.yaml"
-        - "./values.acc.yaml"
+        # - "./values.acc.yaml"
       interval: 5m
   postRenderers:
     - kustomize:
