@@ -15,7 +15,7 @@ spec:
         name: nginx-ingress-dev
         namespace: flux-system
       valuesFiles:
-        - ./charts/dev/nginx-ingress/values.yaml
+        - "./charts/dev/nginx-ingress/values.yaml"
         - "./values.dev.yaml"
       interval: 5m
   releaseName: nginx-ingress-dev

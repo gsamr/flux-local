@@ -15,7 +15,7 @@ spec:
         name: nginx-ingress-acc
         namespace: flux-system
       valuesFiles:
-        - ./charts/acc/nginx-ingress/values.yaml
+        - "./charts/acc/nginx-ingress/values.yaml"
         - "./values.acc.yaml"
       interval: 5m
   releaseName: nginx-ingress-acc

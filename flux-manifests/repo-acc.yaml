@@ -5,6 +5,6 @@ metadata:
   namespace: flux-system
 spec:
   interval: 5m0s
-  url: ssh://git@github.com:gsamr/flux-local.git
+  url: https://github.com/gsamr/flux-local.git
   ref:
     branch: main
