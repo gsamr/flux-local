@@ -1126,7 +1126,7 @@ ml:
   enabled: false
 frontend:
   name: frontend
-  enabled: true
+  enabled: false
   ## When asPod is true, frontend runs as a standalone Deployment instead of a container in the StatefulSet
   asPod: true
   internalPort: 8070
@@ -2552,7 +2552,7 @@ apptrust:
 ## JFBus Service
 jfbus:
   name: jfbus
-  enabled: true
+  enabled: false
   image:
     registry: releases-docker.jfrog.io
     repository: jfrog/jfbus-service
@@ -2684,7 +2684,7 @@ jfbus:
 ## Enabled by default. To disable, set jfmelt.enabled: false in your values override.
 jfmelt:
   name: jfmelt
-  enabled: true
+  enabled: false
   image:
     registry: releases-docker.jfrog.io
     repository: jfrog/jfmelt
