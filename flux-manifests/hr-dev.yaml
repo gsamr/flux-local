@@ -1,8 +1,8 @@
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
-  name: nginx-ingress-dev
-  namespace: nginx-dev
+  name: artifactory-dev
+  namespace: artifactory-dev
 spec:
   interval: 15m
   timeout: 5m
@@ -12,13 +12,13 @@ spec:
       reconcileStrategy: Revision
       sourceRef:
         kind: GitRepository
-        name: nginx-ingress-dev
+        name: artifactory-dev
         namespace: flux-system
       valuesFiles:
         - "./charts/dev/artifactory/values.yaml"
         - "./values.dev.yaml"
       interval: 5m
-  releaseName: nginx-ingress-dev
+  releaseName: artifactory-dev
   install:
     remediation:
       retries: 3

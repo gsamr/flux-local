@@ -1,24 +1,24 @@
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
-  name: nginx-ingress-acc
-  namespace: nginx-acc
+  name: artifactory-acc
+  namespace: artifactory-acc
 spec:
   interval: 15m
   timeout: 5m
   chart:
     spec:
-      chart: "./charts/acc/artifactory
+      chart: "./charts/acc/artifactory"
       reconcileStrategy: Revision
       sourceRef:
         kind: GitRepository
-        name: nginx-ingress-acc
+        name: artifactory-acc
         namespace: flux-system
       valuesFiles:
         - "./charts/acc/artifactory/values.yaml"
         - "./values.acc.yaml"
       interval: 5m
-  releaseName: nginx-ingress-acc
+  releaseName: artifactory-acc
   install:
     remediation:
       retries: 3

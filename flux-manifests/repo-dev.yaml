@@ -1,7 +1,7 @@
 apiVersion: source.toolkit.fluxcd.io/v1
 kind: GitRepository
 metadata:
-  name: nginx-ingress-acc
+  name: artifactory-acc
   namespace: flux-system
 spec:
   interval: 5m0s
