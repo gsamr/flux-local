@@ -90,8 +90,7 @@ installer:
   platform:
 ## The installerInfo is intentionally commented out and the previous content has been moved under `files/installer-info.json`
 ## To override the content in `files/installer-info.json`, Uncomment the `installerInfo` and  add relevant data
-installerInfo:
-  productID: artifactory
+installerInfo: '{"productId": "Helm_artifactory/latest","features": []}'
 
 ## For supporting pulling from private registries
 # imagePullSecrets:
