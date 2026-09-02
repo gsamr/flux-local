@@ -8,3 +8,11 @@ spec:
   url: https://github.com/gsamr/flux-local.git
   ref:
     branch: main
+  ignore: |
+    /*
+    !/values.dev.yaml
+    !/charts/
+    /charts/*
+    !/charts/dev/
+    /charts/dev/*
+    !/charts/dev/artifactory/
