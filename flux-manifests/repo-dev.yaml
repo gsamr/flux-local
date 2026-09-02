@@ -10,9 +10,4 @@ spec:
     branch: main
   ignore: |
     /*
-    !/values.dev.yaml
-    !/charts/
-    /charts/*
-    !/charts/dev/
-    /charts/dev/*
     !/charts/dev/artifactory/

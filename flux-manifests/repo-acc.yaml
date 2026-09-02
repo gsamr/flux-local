@@ -10,9 +10,14 @@ spec:
     branch: main
   ignore: |
     /*
-    !/values.acc.yaml
-    !/charts/
-    /charts/*
-    !/charts/acc/
-    /charts/acc/*
     !/charts/acc/artifactory/
+
+
+  # ignore: |
+  #   /*
+  #   !/values.acc.yaml
+  #   !/charts/
+  #   /charts/*
+  #   !/charts/acc/
+  #   /charts/acc/*
+  #   !/charts/acc/artifactory/
