@@ -1,0 +1,10 @@
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: GitRepository
+metadata:
+  name: nginx-ingress-acc
+  namespace: flux-system
+spec:
+  interval: 5m0s
+  url: ssh://git@github.com:gsamr/flux-local.git
+  ref:
+    branch: main

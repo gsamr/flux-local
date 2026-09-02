@@ -1,0 +1,27 @@
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: nginx-ingress-acc
+  namespace: nginx-acc
+spec:
+  interval: 15m
+  timeout: 5m
+  chart:
+    spec:
+      chart: "./charts/acc/nginx-ingress"
+      reconcileStrategy: Revision
+      sourceRef:
+        kind: GitRepository
+        name: nginx-ingress-acc
+        namespace: flux-system
+      valuesFiles:
+        - ./charts/acc/nginx-ingress/values.yaml
+        - "./values.acc.yaml"
+      interval: 5m
+  releaseName: nginx-ingress-acc
+  install:
+    remediation:
+      retries: 3
+  upgrade:
+    remediation:
+      retries: 3
