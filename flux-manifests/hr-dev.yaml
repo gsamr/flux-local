@@ -8,14 +8,14 @@ spec:
   timeout: 5m
   chart:
     spec:
-      chart: "./charts/dev/nginx-ingress"
+      chart: "./charts/dev/artifactory"
       reconcileStrategy: Revision
       sourceRef:
         kind: GitRepository
         name: nginx-ingress-dev
         namespace: flux-system
       valuesFiles:
-        - "./charts/dev/nginx-ingress/values.yaml"
+        - "./charts/dev/artifactory/values.yaml"
         - "./values.dev.yaml"
       interval: 5m
   releaseName: nginx-ingress-dev
