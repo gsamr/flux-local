@@ -28,6 +28,13 @@ spec:
               - op: replace
                 path: /metadata/labels/chart
                 value: artifactory-latest
+          # - target:
+          #     kind: ConfigMap
+          #     name: artifactory-acc-installer-info
+          #   patch: |
+          #     - op: replace
+          #       path: /metadata/labels/chart
+          #       value: artifactory-latest
 
   releaseName: artifactory-acc
   install:
