@@ -910,7 +910,7 @@ artifactory:
 
     accessMode: ReadWriteOnce
     ## Storage default size. Should be increased for production deployments.
-    size: 20Gi
+    size: 5Gi
     ## Use a custom Secret to be mounted as your binarystore.xml
     ## NOTE: This will ignore all settings below that make up binarystore.xml
     customBinarystoreXmlSecret:
@@ -957,7 +957,7 @@ artifactory:
       haBackupMount: "/backup"
       dataDir: "/var/opt/jfrog/artifactory"
       backupDir: "/var/opt/jfrog/artifactory-backup"
-      capacity: 200Gi
+      capacity: 5Gi
     ## For artifactory.persistence.type file-system
     fileSystem:
       cache:
@@ -2130,7 +2130,7 @@ postgresql:
       max_connections = 1500
     persistence:
       enabled: true
-      size: 200Gi
+      size: 5Gi
       # existingClaim:
     service:
       ports:
