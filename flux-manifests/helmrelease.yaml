@@ -1,85 +1,85 @@
-# apiVersion: helm.toolkit.fluxcd.io/v2
-# kind: HelmRelease
-# metadata:
-#   name: artifactory-dev
-#   namespace: artifactory-dev
-# spec:
-#   interval: 15m
-#   timeout: 20m
-#   chart:
-#     spec:
-#       chart: "./charts/dev/artifactory"
-#       reconcileStrategy: Revision
-#       sourceRef:
-#         kind: GitRepository
-#         name: artifactory-dev
-#         namespace: flux-system
-#       valuesFiles:
-#         - "./charts/dev/artifactory/values.yaml"
-#         # - "./values.dev.yaml"
-#       interval: 5m
-#   postRenderers:
-#     - kustomize:
-#         patches:
-#           - target:
-#               kind: ConfigMap
-#               name: artifactory-dev-configmaps
-#             patch: |
-#               - op: replace
-#                 path: /metadata/labels/chart
-#                 value: artifactory-latest
-#   releaseName: artifactory-dev
-#   install:
-#     remediation:
-#       retries: 3
-#   upgrade:
-#     remediation:
-#       retries: 3
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: artifactory-dev
+  namespace: artifactory-dev
+spec:
+  interval: 15m
+  timeout: 20m
+  chart:
+    spec:
+      chart: "./charts/dev/artifactory"
+      reconcileStrategy: Revision
+      sourceRef:
+        kind: GitRepository
+        name: artifactory-dev
+        namespace: flux-system
+      valuesFiles:
+        - "./charts/dev/artifactory/values.yaml"
+        # - "./values.dev.yaml"
+      interval: 5m
+  postRenderers:
+    - kustomize:
+        patches:
+          - target:
+              kind: ConfigMap
+              name: artifactory-dev-configmaps
+            patch: |
+              - op: replace
+                path: /metadata/labels/chart
+                value: artifactory-latest
+  releaseName: artifactory-dev
+  install:
+    remediation:
+      retries: 3
+  upgrade:
+    remediation:
+      retries: 3
 
-# ---
+---
 
-# apiVersion: helm.toolkit.fluxcd.io/v2
-# kind: HelmRelease
-# metadata:
-#   name: artifactory-acc
-#   namespace: artifactory-acc
-# spec:
-#   interval: 15m
-#   timeout: 20m
-#   chart:
-#     spec:
-#       chart: "./charts/acc/artifactory"
-#       reconcileStrategy: Revision
-#       sourceRef:
-#         kind: GitRepository
-#         name: artifactory-acc
-#         namespace: flux-system
-#       valuesFiles:
-#         - "./charts/acc/artifactory/values.yaml"
-#         # - "./values.acc.yaml"
-#       interval: 5m
-#   postRenderers:
-#     - kustomize:
-#         patches:
-#           - target:
-#               kind: ConfigMap
-#               name: artifactory-acc-configmaps
-#             patch: |
-#               - op: replace
-#                 path: /metadata/labels/chart
-#                 value: artifactory-latest
-#           # - target:
-#           #     kind: ConfigMap
-#           #     name: artifactory-acc-installer-info
-#           #   patch: |
-#           #     - op: replace
-#           #       path: /metadata/labels/chart
-#           #       value: artifactory-latest
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: artifactory-acc
+  namespace: artifactory-acc
+spec:
+  interval: 15m
+  timeout: 20m
+  chart:
+    spec:
+      chart: "./charts/acc/artifactory"
+      reconcileStrategy: Revision
+      sourceRef:
+        kind: GitRepository
+        name: artifactory-acc
+        namespace: flux-system
+      valuesFiles:
+        - "./charts/acc/artifactory/values.yaml"
+        # - "./values.acc.yaml"
+      interval: 5m
+  postRenderers:
+    - kustomize:
+        patches:
+          - target:
+              kind: ConfigMap
+              name: artifactory-acc-configmaps
+            patch: |
+              - op: replace
+                path: /metadata/labels/chart
+                value: artifactory-latest
+          # - target:
+          #     kind: ConfigMap
+          #     name: artifactory-acc-installer-info
+          #   patch: |
+          #     - op: replace
+          #       path: /metadata/labels/chart
+          #       value: artifactory-latest
 
-#   releaseName: artifactory-acc
-#   install:
-#     remediation:
-#       retries: 3
-#   upgrade:
-#     remediation:
-#       retries: 3
+  releaseName: artifactory-acc
+  install:
+    remediation:
+      retries: 3
+  upgrade:
+    remediation:
+      retries: 3
