@@ -1392,7 +1392,7 @@ metadata:
       timeoutSeconds: {{ .Values.probes.timeoutSeconds }}
 evidence:
   name: evidence
-  enabled: false
+  enabled: true
   internalPort: 8051
   externalPort: 8052
   ## Extra environment variables that can be used to tune evidence to your needs.
