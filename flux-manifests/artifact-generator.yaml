@@ -1,0 +1,55 @@
+# artifact-generators/helm-values-generator.yaml
+apiVersion: source.extensions.fluxcd.io/v1beta1
+kind: ArtifactGenerator
+metadata:
+  name: helm-values-combined-acc
+  namespace: flux-system
+spec:
+  sources:
+    # Packaged chart source
+    - alias: chart
+      kind: OCIRepository
+      name: artifactory-acc
+    # Team-specific overrides
+    - alias: valuefile-overrides
+      kind: GitRepository
+      name: artifactory-acc
+  artifacts:
+    - name: helm-values-combined-acc
+      originRevision: "@chart"
+      copy:
+        # Copy the chart contents into the generated artifact
+        - from: "@chart/"
+          to: "@artifact/"
+        # Merge YAML values into the chart values file
+        - from: "@valuefile-overrides/values.acc.yaml"
+          to: "@artifact/artifactory-acc/values.yaml"
+          strategy: Merge
+---
+# artifact-generators/helm-values-generator.yaml
+apiVersion: source.extensions.fluxcd.io/v1beta1
+kind: ArtifactGenerator
+metadata:
+  name: helm-values-combined-dev
+  namespace: flux-system
+spec:
+  sources:
+    # Packaged chart source
+    - alias: chart
+      kind: OCIRepository
+      name: artifactory-dev
+    # Team-specific overrides
+    - alias: valuefile-overrides
+      kind: GitRepository
+      name: artifactory-dev
+  artifacts:
+    - name: helm-values-combined-dev
+      originRevision: "@chart"
+      copy:
+        # Copy the chart contents into the generated artifact
+        - from: "@chart/"
+          to: "@artifact/"
+        # Merge YAML values into the chart values file
+        - from: "@valuefile-overrides/values.dev.yaml"
+          to: "@artifact/artifactory-dev/values.yaml"
+          strategy: Merge

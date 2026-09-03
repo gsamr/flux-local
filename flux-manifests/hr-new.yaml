@@ -1,0 +1,45 @@
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: artifactory-acc
+  namespace: artifactory-acc
+spec:
+  interval: 15m
+  timeout: 20m
+  chartRef:
+    kind: ExternalArtifact
+    name: helm-values-combined-acc
+    namespace: flux-system
+  postRenderers:
+    - kustomize:
+        patches:
+          - target:
+              kind: ConfigMap
+              name: artifactory-acc-configmaps
+            patch: |
+              - op: replace
+                path: /metadata/labels/chart
+                value: artifactory-latest
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: artifactory-dev
+  namespace: artifactory-dev
+spec:
+  interval: 15m
+  timeout: 20m
+  chartRef:
+    kind: ExternalArtifact
+    name: helm-values-combined-dev
+    namespace: flux-system
+  postRenderers:
+    - kustomize:
+        patches:
+          - target:
+              kind: ConfigMap
+              name: artifactory-dev-configmaps
+            patch: |
+              - op: replace
+                path: /metadata/labels/chart
+                value: artifactory-latest

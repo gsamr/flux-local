@@ -1,0 +1,25 @@
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: OCIRepository
+metadata:
+  name: artifactory-acc
+  namespace: flux-system
+spec:
+  interval: 5m0s
+  url: oci://ghcr.io/gsamr/charts/artifactory-acc
+  ref:
+    # SemVer comparisons using constraints without a prerelease comparator will skip prerelease versions.
+    # Adding a `-0` suffix to the semver range will include prerelease versions.
+    semver: ">= 0.0.0"
+---
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: OCIRepository
+metadata:
+  name: artifactory-dev
+  namespace: flux-system
+spec:
+  interval: 5m0s
+  url: oci://ghcr.io/gsamr/charts/artifactory-dev
+  ref:
+    # SemVer comparisons using constraints without a prerelease comparator will skip prerelease versions.
+    # Adding a `-0` suffix to the semver range will include prerelease versions.
+    semver: ">= 0.0.0"
