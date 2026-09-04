@@ -23,7 +23,7 @@ spec:
           to: "@artifact/"
         # Merge YAML values into the chart values file
         - from: "@valuefile-overrides/values.acc.yaml"
-          to: "@artifact/artifactory-acc/values.yaml"
+          to: "@artifact/artifactory/values.yaml"
           strategy: Merge
 ---
 # artifact-generators/helm-values-generator.yaml
@@ -51,5 +51,5 @@ spec:
           to: "@artifact/"
         # Merge YAML values into the chart values file
         - from: "@valuefile-overrides/values.dev.yaml"
-          to: "@artifact/artifactory-dev/values.yaml"
+          to: "@artifact/artifactory/values.yaml"
           strategy: Merge
